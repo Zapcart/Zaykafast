@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zapcart - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+    body {
+      background-color: #fff;
+      color: #000;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark {
+      background-color: #111;
+      color: #fff;
+    }
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+    .toggle-theme {
+      cursor: pointer;
+    }
+    .banner {
+      background: #eee;
+      padding: 30px;
+      text-align: center;
+    }
+    .timer {
+      font-size: 20px;
+      margin-top: 10px;
+      color: red;
+    }
+    section {
+      padding: 20px;
+    }
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 15px;
+    }
+    .card {
+      border: 1px solid #000;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    video {
+      width: 100%;
+      height: auto;
+    }
+    .testimonials video {
+      max-height: 150px;
+    }
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: green;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .referral, .spotlight, .gamify, .price-challenge, .local-top {
+      background: #f9f9f9;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+    input, button, textarea {
+      padding: 8px;
+      margin-top: 8px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background: black;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Zapcart</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Cart</a>
+      <a href="#">Login</a>
+      <span class="toggle-theme" onclick="toggleTheme()">Toggle Theme</span>
+    </nav>
+  </header>
+
+  <div class="banner">
+    <h2>FLASH SALE - Upto 50% OFF!</h2>
+    <div class="timer" id="countdown"></div>
+  </div>
+
+  <section class="referral">
+    <div class="section-title">Refer Sellers & Earn</div>
+    <p>Invite your friends to become sellers on Zapcart and earn up to ₹100 per successful signup!</p>
+    <input type="text" value="https://zapcart.in/referral?code=ABC123" readonly>
+  </section>
+
+  <section class="categories">
+    <div class="section-title">Shop by Mood</div>
+    <div class="grid">
+      <div class="card">Chill Vibes</div>
+      <div class="card">Party Ready</div>
+      <div class="card">Minimalist</div>
+      <div class="card">Classy Looks</div>
+    </div>
+  </section>
+
+  <section class="recommended">
+    <div class="section-title">Recommended for You</div>
+    <div class="grid">
+      <div class="card">
+        <video autoplay muted loop src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+        <p>Smart Watch - ₹1999</p>
+      </div>
+      <div class="card">
+        <video autoplay muted loop src="https://www.w3schools.com/html/movie.mp4"></video>
+        <p>Wireless Earbuds - ₹1299</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="section-title">Customer Stories</div>
+    <div class="grid">
+      <div class="card">
+        <video controls src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+        <p>Amazing service!</p>
+      </div>
+      <div class="card">
+        <video controls src="https://www.w3schools.com/html/movie.mp4"></video>
+        <p>Great quality!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="spotlight">
+    <div class="section-title">Seller Spotlight</div>
+    <p><strong>Ravi, a local artisan from Jaipur</strong>, started with 5 handmade items. Now selling 500+ every month on Zapcart!</p>
+  </section>
+
+  <section class="gamify">
+    <div class="section-title">Your Zapcart Score</div>
+    <p>Coins: 200 | Level: Bronze | Badge: Consistent Buyer</p>
+  </section>
+
+  <section class="price-challenge">
+    <div class="section-title">Found Cheaper Elsewhere?</div>
+    <p>Upload link or screenshot and we’ll match the price!</p>
+    <input type="url" placeholder="Paste product link here">
+    <textarea placeholder="Additional notes..."></textarea>
+    <button>Submit Challenge</button>
+  </section>
+
+  <section class="local-top">
+    <div class="section-title">Top Picks in Your Area</div>
+    <div class="grid">
+      <div class="card">Local Handmade Decor - ₹499</div>
+      <div class="card">Organic Snacks Pack - ₹299</div>
+    </div>
+  </section>
+
+  <a class="whatsapp" href="https://wa.me/919960824574" target="_blank">Chat on WhatsApp</a>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+
+    const countdown = document.getElementById('countdown');
+    let timeLeft = 3600; // 1 hour in seconds
+    setInterval(() => {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      countdown.innerText = ${minutes}m ${seconds}s left!;
+      timeLeft--;
+      if (timeLeft < 0) countdown.innerText = "Deal Ended!";
+    }, 1000);
+  </script>
+</body>
+</html>
