@@ -1,1 +1,0 @@
-This is the ZaykaFast homepage React component using TailwindCSS.
