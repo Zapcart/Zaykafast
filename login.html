@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zaykafast - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-wrapper {
+      width: 100%;
+      max-width: 400px;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid #eee;
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .login-header h2 {
+      color: #ff0000;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .login-header p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    form input {
+      width: 100%;
+      padding: 0.9rem;
+      margin: 0.8rem 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    form button {
+      width: 100%;
+      padding: 0.9rem;
+      background-color: #ff0000;
+      color: #fff;
+      border: none;
+      font-weight: 600;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .alternate-option {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .alternate-option a {
+      color: #ff0000;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-text {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #999;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-wrapper">
+    <div class="login-header">
+      <h2>Login to continue</h2>
+      <p>Enter your mobile number to get OTP</p>
+    </div>
+    <form>
+      <input type="tel" placeholder="Enter Mobile Number" maxlength="10" required />
+      <button type="submit">Send OTP</button>
+    </form>
+    <div class="alternate-option">
+      <p>New to Zaykafast? <a href="#">Create Account</a></p>
+    </div>
+    <div class="footer-text">
+      &copy; 2025 Zaykafast
+    </div>
+  </div>
+</body>
+
+</html>
