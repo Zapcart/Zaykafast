@@ -17,7 +17,6 @@
     body {
       background-color: #fff;
       color: #333;
-      line-height: 1.6;
     }
 
     header {
@@ -27,11 +26,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     header h1 {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
 
     nav a {
@@ -39,112 +37,96 @@
       color: white;
       text-decoration: none;
       font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #ffd6d6;
     }
 
     .hero {
-      background: linear-gradient(to right, #ffeaea, #fff5f5);
-      padding: 4rem 2rem;
+      background: #ffeaea;
+      padding: 3rem 2rem;
       text-align: center;
     }
 
     .hero h2 {
-      color: #cc0000;
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
+      color: #ff0000;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .search-bar {
+      margin-top: 1rem;
     }
 
     .search-bar input {
-      padding: 0.8rem 1rem;
-      width: 80%;
+      padding: 0.8rem;
+      width: 70%;
       max-width: 500px;
       border: 2px solid #ff0000;
-      border-radius: 30px;
-      font-size: 1rem;
+      border-radius: 5px;
     }
 
     .section {
-      padding: 3rem 2rem;
-      background-color: #f9f9f9;
+      padding: 2rem;
     }
 
     .section h3 {
-      color: #cc0000;
-      margin-bottom: 2rem;
-      text-align: center;
-      font-size: 1.8rem;
+      color: #ff0000;
+      margin-bottom: 1rem;
     }
 
     .restaurants {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
     .card {
-      border: none;
-      border-radius: 15px;
-      overflow: hidden;
-      background: white;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 1rem;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
       cursor: pointer;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      transform: scale(1.03);
     }
 
     .card img {
       width: 100%;
-      height: 160px;
+      border-radius: 8px;
+      height: 150px;
       object-fit: cover;
     }
 
     .card h4 {
-      margin: 1rem;
-      font-size: 1.2rem;
-      color: #333;
-    }
-
-    .card p {
-      margin: 0 1rem 1rem;
-      color: #777;
+      margin: 0.5rem 0 0.2rem;
     }
 
     .login-popup {
+      display: none;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      display: none;
+      background-color: rgba(0, 0, 0, 0.5);
       justify-content: center;
       align-items: center;
-      z-index: 999;
     }
 
     .login-container {
       background: #fff;
-      width: 90%;
       max-width: 400px;
       padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-      position: relative;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
     .login-container h2 {
-      color: #cc0000;
+      color: #ff0000;
       margin-bottom: 1.5rem;
       text-align: center;
-      font-size: 1.8rem;
     }
 
     .login-container input {
@@ -153,7 +135,6 @@
       margin-bottom: 1rem;
       border: 1px solid #ccc;
       border-radius: 5px;
-      font-size: 1rem;
     }
 
     .login-container button {
@@ -165,40 +146,23 @@
       font-weight: 600;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 1rem;
     }
 
-    .login-container button:hover {
-      background: #cc0000;
-    }
-
-    .login-container .forgot {
+    .login-container a {
+      display: block;
+      margin-top: 0.5rem;
       text-align: right;
-      margin-top: -0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .login-container .forgot a {
-      color: #cc0000;
       font-size: 0.9rem;
+      color: #555;
       text-decoration: none;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 20px;
-      color: #999;
-      cursor: pointer;
     }
 
     footer {
       background: #ff0000;
       color: white;
       text-align: center;
-      padding: 1.2rem;
-      font-size: 0.95rem;
+      padding: 1rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
@@ -223,17 +187,17 @@
     <h3>Popular Restaurants</h3>
     <div class="restaurants">
       <div class="card" onclick="openLogin()">
-        <img src="https://source.unsplash.com/250x150/?biryani" alt="Biryani King" />
+        <img src="https://images.unsplash.com/photo-1598514982471-89e84df79878?auto=format&fit=crop&w=500&q=80" alt="Biryani King" />
         <h4>Biryani King</h4>
         <p>4.5 stars | ₹₹ | Biryani, Mughlai</p>
       </div>
       <div class="card" onclick="openLogin()">
-        <img src="https://source.unsplash.com/250x150/?pizza" alt="Pizza Hub" />
+        <img src="https://images.unsplash.com/photo-1601924572975-4aa3f6e92b0c?auto=format&fit=crop&w=500&q=80" alt="Pizza Hub" />
         <h4>Pizza Hub</h4>
         <p>4.3 stars | ₹₹ | Pizza, Italian</p>
       </div>
       <div class="card" onclick="openLogin()">
-        <img src="https://source.unsplash.com/250x150/?burger" alt="Burger Point" />
+        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80" alt="Burger Point" />
         <h4>Burger Point</h4>
         <p>4.2 stars | ₹ | Fast Food, Snacks</p>
       </div>
@@ -242,14 +206,11 @@
 
   <div class="login-popup" id="loginPopup">
     <div class="login-container">
-      <span class="close-btn" onclick="closeLogin()">&times;</span>
       <h2>Customer Login</h2>
       <form>
         <input type="email" placeholder="Email or Phone Number" required />
         <input type="password" placeholder="Password" required />
-        <div class="forgot">
-          <a href="#">Forgot Password?</a>
-        </div>
+        <a href="#">Forgot Password?</a>
         <button type="submit">Login</button>
       </form>
     </div>
@@ -261,11 +222,15 @@
 
   <script>
     function openLogin() {
-      document.getElementById('loginPopup').style.display = 'flex';
+      document.getElementById("loginPopup").style.display = "flex";
     }
-    function closeLogin() {
-      document.getElementById('loginPopup').style.display = 'none';
-    }
+
+    window.onclick = function (event) {
+      const popup = document.getElementById("loginPopup");
+      if (event.target === popup) {
+        popup.style.display = "none";
+      }
+    };
   </script>
 </body>
 
