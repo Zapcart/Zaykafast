@@ -17,6 +17,7 @@
     body {
       background-color: #fff;
       color: #333;
+      line-height: 1.6;
     }
 
     header {
@@ -26,10 +27,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     header h1 {
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
 
     nav a {
@@ -37,84 +39,112 @@
       color: white;
       text-decoration: none;
       font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd6d6;
     }
 
     .hero {
-      background: #ffeaea;
-      padding: 3rem 2rem;
+      background: linear-gradient(to right, #ffeaea, #fff5f5);
+      padding: 4rem 2rem;
       text-align: center;
     }
 
     .hero h2 {
-      color: #ff0000;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .search-bar {
-      margin-top: 1rem;
+      color: #cc0000;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .search-bar input {
-      padding: 0.8rem;
-      width: 70%;
+      padding: 0.8rem 1rem;
+      width: 80%;
       max-width: 500px;
       border: 2px solid #ff0000;
-      border-radius: 5px;
+      border-radius: 30px;
+      font-size: 1rem;
     }
 
     .section {
-      padding: 2rem;
+      padding: 3rem 2rem;
+      background-color: #f9f9f9;
     }
 
     .section h3 {
-      color: #ff0000;
-      margin-bottom: 1rem;
+      color: #cc0000;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-size: 1.8rem;
     }
 
     .restaurants {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
     .card {
-      border: 1px solid #eee;
-      border-radius: 10px;
-      padding: 1rem;
-      background: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s;
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
     }
 
     .card:hover {
-      transform: scale(1.03);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     }
 
     .card img {
       width: 100%;
-      border-radius: 8px;
-      height: 150px;
+      height: 160px;
       object-fit: cover;
     }
 
     .card h4 {
-      margin: 0.5rem 0 0.2rem;
+      margin: 1rem;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .card p {
+      margin: 0 1rem 1rem;
+      color: #777;
+    }
+
+    .login-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
     }
 
     .login-container {
-      background: #ffeaea;
+      background: #fff;
+      width: 90%;
       max-width: 400px;
-      margin: 3rem auto;
       padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
     }
 
     .login-container h2 {
-      color: #ff0000;
+      color: #cc0000;
       margin-bottom: 1.5rem;
       text-align: center;
+      font-size: 1.8rem;
     }
 
     .login-container input {
@@ -123,6 +153,7 @@
       margin-bottom: 1rem;
       border: 1px solid #ccc;
       border-radius: 5px;
+      font-size: 1rem;
     }
 
     .login-container button {
@@ -134,14 +165,40 @@
       font-weight: 600;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .login-container button:hover {
+      background: #cc0000;
+    }
+
+    .login-container .forgot {
+      text-align: right;
+      margin-top: -0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .login-container .forgot a {
+      color: #cc0000;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      color: #999;
+      cursor: pointer;
     }
 
     footer {
       background: #ff0000;
       color: white;
       text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+      padding: 1.2rem;
+      font-size: 0.95rem;
     }
   </style>
 </head>
@@ -151,7 +208,6 @@
     <h1>Zaykafast</h1>
     <nav>
       <a href="#">Home</a>
-      <a href="#login">Login</a>
       <a href="#">Cart</a>
     </nav>
   </header>
@@ -166,17 +222,17 @@
   <section class="section">
     <h3>Popular Restaurants</h3>
     <div class="restaurants">
-      <div class="card">
+      <div class="card" onclick="openLogin()">
         <img src="https://source.unsplash.com/250x150/?biryani" alt="Biryani King" />
         <h4>Biryani King</h4>
         <p>4.5 stars | ₹₹ | Biryani, Mughlai</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="openLogin()">
         <img src="https://source.unsplash.com/250x150/?pizza" alt="Pizza Hub" />
         <h4>Pizza Hub</h4>
         <p>4.3 stars | ₹₹ | Pizza, Italian</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="openLogin()">
         <img src="https://source.unsplash.com/250x150/?burger" alt="Burger Point" />
         <h4>Burger Point</h4>
         <p>4.2 stars | ₹ | Fast Food, Snacks</p>
@@ -184,18 +240,33 @@
     </div>
   </section>
 
-  <section class="login-container" id="login">
-    <h2>Customer Login</h2>
-    <form>
-      <input type="email" placeholder="Email address" required />
-      <input type="password" placeholder="Password" required />
-      <button type="submit">Login</button>
-    </form>
-  </section>
+  <div class="login-popup" id="loginPopup">
+    <div class="login-container">
+      <span class="close-btn" onclick="closeLogin()">&times;</span>
+      <h2>Customer Login</h2>
+      <form>
+        <input type="email" placeholder="Email or Phone Number" required />
+        <input type="password" placeholder="Password" required />
+        <div class="forgot">
+          <a href="#">Forgot Password?</a>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2025 Zaykafast. All rights reserved.</p>
   </footer>
+
+  <script>
+    function openLogin() {
+      document.getElementById('loginPopup').style.display = 'flex';
+    }
+    function closeLogin() {
+      document.getElementById('loginPopup').style.display = 'none';
+    }
+  </script>
 </body>
 
 </html>
